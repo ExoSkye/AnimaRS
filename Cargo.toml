@@ -3,7 +3,8 @@ name = "anima_rs"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+graphical-tests = []
 
 [dependencies]
 derive_more = "0.99.16"
@@ -15,3 +16,20 @@ strum_macros = "0.24"
 version = "0.2.14"
 default-features = false
 features = ["libm"]
+
+[dependencies.core_extensions]
+version = "1.5"
+features = [
+    # Requires the latest stable release, enables all the rust-version-dependent features
+    "rust_latest_stable",
+    # enables all the item features
+    "all_items",
+]
+
+[build-dependencies]
+cargo-emit = "0.1"
+
+[dev-dependencies.pretty_assertions]
+version = "1.1.0"
+default-features = false
+features = ["alloc"]

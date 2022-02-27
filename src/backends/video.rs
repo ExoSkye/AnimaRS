@@ -4,7 +4,7 @@ use core::result::Result;
 use num_traits::real::Real;
 use cgmath::Vector2;
 use crate::backends::ExitType;
-use crate::engine::voxel::Voxel;
+use crate::engine::Voxel;
 
 pub enum GraphicsType {
     END,
@@ -32,7 +32,7 @@ pub trait VideoBackend {
     fn set_standard(standard: GraphicsType) -> Result<(), VideoError>;
 
     #[must_use]
-    fn draw<const N: usize>(voxels: IntoIter<Voxel, N>) -> Result<(), VideoError>;
+    fn draw<T: IntoIterator<Item = Voxel>, const N: usize>(voxels: &T) -> Result<(), VideoError>;
 
     #[must_use]
     fn flip() -> Result<(), VideoError>;
