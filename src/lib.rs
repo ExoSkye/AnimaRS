@@ -12,7 +12,7 @@ pub mod dummy_backend;
 mod tests {
 
     #[cfg(test)]
-    use pretty_assertions::{assert_eq, assert_ne};
+    use pretty_assertions::assert_eq;
 
     use super::*;
 

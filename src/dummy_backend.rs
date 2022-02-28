@@ -22,7 +22,7 @@ impl VideoBackend for DummyBackend {
         Ok(())
     }
 
-    fn draw<T: IntoIterator<Item = Voxel>, const N: usize>(voxels: &T) -> Result<(), VideoError> {
+    fn draw<T: IntoIterator<Item = Voxel>, const N: usize>(_voxels: &T) -> Result<(), VideoError> {
         Ok(())
     }
 
