@@ -1,0 +1,39 @@
+name: Logseq
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'logseq/**'
+      - '.github/workflows/logseq.yml'
+      
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'logseq/**'
+      - '.github/workflows/logseq.yml'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and Publish Logseq docs
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Logseq Publish 🚩
+        uses: pengx17/logseq-publish@v0.1
+        with:
+          src: logseq
+
+      - name: add a nojekyll file
+        run: touch $GITHUB_WORKSPACE/www/.nojekyll
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.9
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: www # The folder the action should deploy.
+          clean: true

@@ -1,6 +1,4 @@
-pub mod voxel;
 pub mod engine;
-pub mod entity;
 pub mod scene;
 
 pub use voxel::Voxel;

@@ -1,0 +1,9 @@
+- public:: true
+- ### Standards
+	- [[Anima]] outlines many standards for how things should look, regardless of platform.
+	- Details of these standards can be found here: [[Standards]]
+- ### Backends
+	- To allow [[Anima]] to be as portable to be as possible, it makes uses of backends for several subsystems of the engine (ie the graphics).
+	- You can find information about them here: [[Backends]]
+- ### API
+	- The API reference can be found here: [[API]]
